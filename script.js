@@ -3,7 +3,7 @@ $(function () {
   const cards = window.scrum_better_config.cards;
   shuffleArray(participants);
 
-  (function showCards() {
+  function showCards() {
     const cardHtml = `
       <div class="card">
         <div class="flipper">
@@ -27,21 +27,24 @@ $(function () {
         .replace("#description", card.description);
     });
     $(".cards").html(cardsHtml);
-  })();
 
-  // Toggle start screen cards
-  $('.cards .card:not(".twist")').on("click", function (e) {
-    $(this)
-      .toggleClass("active")
-      .siblings()
-      .not(".twist")
-      .removeClass("active");
-  });
+    // Toggle start screen cards
+    $('.cards .card:not(".twist")').on("click", function (e) {
+      $(this)
+        .toggleClass("active")
+        .siblings()
+        .not(".twist")
+        .removeClass("active");
+    });
+  }
+
+  showCards();
 
   $("#roll-the-dice").on("click", () => {
     const name = participants.pop();
-    $('.random-person').show();
+    $(".random-person").show();
     $(".person-name").text(name);
+    showCards();
   });
 });
 
