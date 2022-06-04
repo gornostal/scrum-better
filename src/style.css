@@ -1,0 +1,123 @@
+body, html{margin:0;font-family:Arial, Helvetica, sans-serif;background:#333;overflow:hidden;color:#fff;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	overflow: auto;
+}
+.flipper, .f, .b, #g {width:100%;height:100%;}
+body {
+	min-width: 715px;
+	overflow-x: auto;
+	padding: 30px;
+}
+
+/* font-face */
+@font-face{font-family: "GeneralFoundicons";font-weight:normal;font-style:normal;
+	src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/60583/general_foundicons.eot");
+	src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/60583/general_foundicons.eot?#iefix") format("embedded-opentype"),
+	     url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/60583/general_foundicons.woff") format("woff"),
+	     url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/60583/general_foundicons.ttf") format("truetype"),
+	     url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/60583/general_foundicons.svg#GeneralFoundicons") format("svg");
+}
+
+.wrap {
+	width: 675px;
+	margin: 0 auto;
+}
+.action-link {
+	position: relative;
+	padding-left: 30px;
+	font-size: 20px;
+	color: white;
+}
+.action-link:before {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: '🎲';
+}
+.action-link:hover {
+	color: #5deace;
+}
+
+.step {
+	margin-top: 10px;
+	margin-bottom: 20px;
+	margin-left: -40px;
+}
+.step:first-child { margin-top: 0; }
+
+.step h1 {
+	display: inline-block;
+	font-size: 25px;
+	color: #806d6b;
+}
+.step h1:first-child {
+	font-weight: bold;
+	font-size: 48px;
+	margin-right: 10px;
+	color: #b0a2a0;
+}
+
+.person-selector a {
+	display: inline-block;
+}
+.person-selector .random-person {
+	display: inline-block;
+	position: relative;
+	padding-left: 100px;
+	font-weight: bold;
+	font-size: 20px;
+}
+.person-selector .random-person:before {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 40px;
+	content: '👉';
+}
+
+/* FRONT SCREEN */
+.cards{
+	display: flex;
+	flex-wrap: wrap;
+	width: 675px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.cards .card{width:225px;height:225px;cursor:default;position:relative}
+.cards .card.left.active{z-index:2}
+.cards .card.left.active + .card{opacity:0}
+.cards .card.left.active .b{margin-left:-100%}
+.cards .f{font:normal 130px/225px 'Open Sans';text-align:center;text-transform:uppercase;}
+.cards .c2{transform:scale(-1, 1);-webkit-transform:scale(-1, 1);-moz-transform:scale(-1, 1);-ms-transform:scale(-1, 1)}
+
+.cards .contentbox{font:normal 12px/16px 'Open Sans';text-align:left}
+.cards .contentbox.levels{width:100%}
+.cards .contentbox .padded{padding:0 15px;}
+.cards .contentbox h2{font-size:19px;padding:0;margin:28px 0;text-transform:uppercase;line-height: 24px;}
+.cards .contentbox p{line-height:14px;margin:14px 0}
+
+.cards .info{font-size:11px;line-height:16px;text-align:center;color: rgba(255,255,255, .3);padding:0 25px;}
+
+/* card styles */
+.card{display: block;-webkit-perspective:1000;-moz-perspective:1000;}
+.card:not(.active):hover{opacity:.8}
+.card .b::before{content:attr(data-f);display:block;font:normal 100px/100px "GeneralFoundicons";
+position:absolute;top:50%;margin-top:-50px;width:100%;text-align:center}
+
+/* flip cards */
+.flipper {position:relative;-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d}
+.f, .b {position:absolute;top:0;left:0;box-shadow:inset 0 0 0 1px #333;-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden}
+.f {background:#16A085;z-index:1}
+.b {background:#C0392B;opacity:0}
+.card.active .b{z-index:2;opacity:1}
+
+/*Grouped for easy prefixing*/
+.card, .flipper, .cards .b{transition:400ms;-ms-transition:400ms;-webkit-transition:400ms;-moz-transition:400ms;-o-transition:400ms}
+.card.active .flipper, .b {transform:rotateY(180deg);-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);-o-transform:rotateY(180deg)}
+.cards .f, .card .b::before, .pause::before{-webkit-text-stroke: 1px #fff} /*webkit only*/
