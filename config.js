@@ -43,10 +43,8 @@ window.scrum_better_config = {
     "Denis",
     "Ilya",
     "Jiyeong",
-    "Pavel H",
     "Volodymyr K",
     "Kateryna",
     "Yuliia",
-    "Pavlo K",
   ],
 };
