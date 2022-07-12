@@ -27,6 +27,7 @@ window.scrum_better_config = {
     smile,
     payAttention,
     motivateUs,
+    motivateUs,
     fact,
     boring,
   ],
