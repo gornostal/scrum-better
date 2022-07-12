@@ -16,22 +16,18 @@ const motivateUs = {
   description:
     "<p>Finish your update with something motivational.</p> Example: Together we'll build this great app!!",
 };
-const scaryStuff = {
-  title: "Scary stuff! 😱",
+const fact = {
+  title: "Fact time! 🤩",
   description:
-    "If your camera was turned off while reading this, tell us your updates as if you're narrating a horror story.",
+    "If your camera WAS TURNED OFF while reading this, <br /> tell us a fact about you / your life that we wouldn't know.",
 };
 
 window.scrum_better_config = {
   cards: [
     smile,
-    smile,
-    payAttention,
     payAttention,
     motivateUs,
-    motivateUs,
-    scaryStuff,
-    boring,
+    fact,
     boring,
   ],
   participants: [
